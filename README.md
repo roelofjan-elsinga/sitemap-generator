@@ -53,7 +53,7 @@ public function add(
     string $url, 
     $priority = 1, 
     string $last_modified = null, 
-    string $change_frequency = null
+    string $change_frequency = 'weekly'
 ): SitemapGenerator
 ```
 

@@ -15,7 +15,7 @@ class SitemapGenerator
      * @param string|null $change_frequency
      * @return SitemapGenerator
      */
-    public function add(string $url, $priority = 1, string $last_modified = null, string $change_frequency = null): SitemapGenerator
+    public function add(string $url, $priority = 1, string $last_modified = null, string $change_frequency = 'weekly'): SitemapGenerator
     {
         if ($this->isAvailableInList($url)) {
             return $this;
