@@ -4,7 +4,33 @@ namespace SitemapGenerator;
 
 class SitemapGenerator
 {
+    /**@var array*/
     private $sitemap_links = [];
+    /**@var string*/
+    private $domain = '';
+    /**@var bool*/
+    private $includes_domain = false;
+
+    /**
+     * Set the given domain to the class variable
+     *
+     * @param string|null $domain
+     */
+    public function __construct(string $domain = null)
+    {
+        $this->setDomain($domain);
+    }
+
+    /**
+     * Provide a named constructor
+     *
+     * @param string|null $domain
+     * @return SitemapGenerator
+     */
+    public static function boot(string $domain = null): SitemapGenerator
+    {
+        return new static($domain);
+    }
 
     /**
      * Add the given url and related information to the links list
@@ -63,11 +89,12 @@ class SitemapGenerator
 
         $urlset_contents = implode("\n", $array_of_xml_strings);
 
-        return "
-            <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
-                {$urlset_contents}
-            </urlset>
-        ";
+        $xml_string = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+        $xml_string .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+        $xml_string .= $urlset_contents . "\n";
+        $xml_string .= "</urlset>";
+
+        return $xml_string;
     }
 
     /**
@@ -75,7 +102,7 @@ class SitemapGenerator
      *
      * @return string
      */
-    public function toSitemap(): string
+    public function toXML(): string
     {
         return $this->__toString();
     }
@@ -91,6 +118,22 @@ class SitemapGenerator
     }
 
     /**
+     * Set a domain to prepend to any URL that's added to the list
+     *
+     * @param string $domain
+     * @return SitemapGenerator
+     */
+    public function setDomain(string $domain = null): SitemapGenerator
+    {
+        if($domain) {
+            $this->domain = $domain;
+            $this->includes_domain = true;
+        }
+
+        return $this;
+    }
+
+    /**
      * Convert the given sitemap url into an XML string
      *
      * @param array $url
@@ -98,14 +141,29 @@ class SitemapGenerator
      */
     private function urlArrayToString(array $url): string
     {
-        return "
-            <url>
-                <loc>{$url['url']}</loc>
-                <priority>{$url['priority']}</priority>
-                <lastmod>{$url['lastmod']}</lastmod>
-                <changefreq>{$url['changefreq']}</changefreq>
-            </url>
-        ";
+        $xml_string = "<url>";
+        $xml_string .= "<loc>{$this->getUrl($url['url'])}</loc>";
+        $xml_string .= "<lastmod>{$url['lastmod']}</lastmod>";
+        $xml_string .= "<changefreq>{$url['changefreq']}</changefreq>";
+        $xml_string .= "<priority>{$url['priority']}</priority>";
+        $xml_string .= "</url>";
+
+        return $xml_string;
+    }
+
+    /**
+     * Get the URL for the given string, prepend the domain if it's set
+     *
+     * @param string $url
+     * @return string
+     */
+    private function getUrl(string $url): string
+    {
+        if($this->includes_domain) {
+            return "{$this->domain}{$url}";
+        }
+
+        return $url;
     }
 
     /**

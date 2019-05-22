@@ -11,6 +11,10 @@ class SitemapGeneratorTest extends TestCase
         $generator = new SitemapGenerator();
 
         $this->assertEquals('SitemapGenerator\SitemapGenerator', get_class($generator));
+
+        $generator = SitemapGenerator::boot();
+
+        $this->assertEquals('SitemapGenerator\SitemapGenerator', get_class($generator));
     }
 
     public function testAddingLinkToSitemap()
@@ -87,6 +91,24 @@ class SitemapGeneratorTest extends TestCase
         $errors = libxml_get_errors();
 
         return empty($errors);
+    }
+
+    public function testDomainIsSetThroughInit()
+    {
+        $generator = new SitemapGenerator('https://test.com');
+
+        $generator->add('/');
+
+        $this->assertTrue(strpos($generator->toXML(), 'https://test.com/') !== false);
+    }
+
+    public function testDomainIsSetThroughBootMethod()
+    {
+        $generator = SitemapGenerator::boot('https://test.com');
+
+        $generator->add('/');
+
+        $this->assertTrue(strpos($generator->toXML(), 'https://test.com/') !== false);
     }
 
 }
