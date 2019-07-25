@@ -1,3 +1,10 @@
+<p align="center">
+<a href="https://travis-ci.com/roelofjan-elsinga/sitemap-generator"><img src="https://travis-ci.com/roelofjan-elsinga/sitemap-generator.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/roelofjan-elsinga/sitemap-generator"><img src="https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/downloads" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/roelofjan-elsinga/sitemap-generator"><img src="https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/roelofjan-elsinga/sitemap-generator"><img src="https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/license" alt="License"></a>
+</p>
+
 # Sitemap Generator
 
 This package helps you to very easily generate a sitemap for your website.
