@@ -66,9 +66,7 @@ class SitemapGenerator
     public function remove(string $url): SitemapGenerator
     {
         $this->sitemap_links = array_filter($this->sitemap_links, function ($sitemap_link) use ($url) {
-
             return $sitemap_link['url'] !== $url;
-
         });
 
         return $this;
@@ -82,9 +80,7 @@ class SitemapGenerator
     public function __toString(): string
     {
         $array_of_xml_strings = array_map(function ($url) {
-
             return $this->urlArrayToString($url);
-
         }, $this->sitemap_links);
 
         $urlset_contents = implode("\n", $array_of_xml_strings);
@@ -125,7 +121,7 @@ class SitemapGenerator
      */
     public function setDomain(string $domain = null): SitemapGenerator
     {
-        if($domain) {
+        if ($domain) {
             $this->domain = $domain;
             $this->includes_domain = true;
         }
@@ -159,7 +155,7 @@ class SitemapGenerator
      */
     private function getUrl(string $url): string
     {
-        if($this->includes_domain) {
+        if ($this->includes_domain) {
             return "{$this->domain}{$url}";
         }
 
@@ -175,12 +171,9 @@ class SitemapGenerator
     private function isAvailableInList(string $url): bool
     {
         $matching_links = array_filter($this->sitemap_links, function ($sitemap_link) use ($url) {
-
             return $sitemap_link['url'] === $url;
-
         });
 
         return count($matching_links) > 0;
     }
-
 }
