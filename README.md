@@ -1,10 +1,11 @@
 # Sitemap Generator
 
-<a href="https://travis-ci.com/roelofjan-elsinga/sitemap-generator"><img src="https://travis-ci.com/roelofjan-elsinga/sitemap-generator.svg" alt="Build Status"></a>
-<img src="https://github.styleci.io/repos/177750721/shield" alt="StyleCI Status">
-<a href="https://packagist.org/packages/roelofjan-elsinga/sitemap-generator"><img src="https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/roelofjan-elsinga/sitemap-generator"><img src="https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/v/stable" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/roelofjan-elsinga/sitemap-generator"><img src="https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/license" alt="License"></a>
+[![Build status](https://travis-ci.com/roelofjan-elsinga/sitemap-generator.svg)](https://travis-ci.com/roelofjan-elsinga/sitemap-generator)
+[![StyleCI Status](https://github.styleci.io/repos/177750721/shield)](https://github.styleci.io/repos/177750721)
+[![Code coverage](https://codecov.io/gh/roelofjan-elsinga/sitemap-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/roelofjan-elsinga/sitemap-generator)
+[![Total Downloads](https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/downloads)](https://packagist.org/packages/roelofjan-elsinga/sitemap-generator)
+[![Latest Stable Version](https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/v/stable)](https://packagist.org/packages/roelofjan-elsinga/sitemap-generator)
+[![License](https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/license)](https://packagist.org/packages/roelofjan-elsinga/sitemap-generator)
 
 This package helps you to very easily generate a sitemap for your website.
 
