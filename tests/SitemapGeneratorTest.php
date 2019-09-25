@@ -5,7 +5,6 @@ use SitemapGenerator\SitemapGenerator;
 
 class SitemapGeneratorTest extends TestCase
 {
-
     public function testInit()
     {
         $generator = new SitemapGenerator();
@@ -110,5 +109,4 @@ class SitemapGeneratorTest extends TestCase
 
         $this->assertTrue(strpos($generator->toXML(), 'https://test.com/') !== false);
     }
-
 }
