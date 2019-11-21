@@ -43,6 +43,8 @@ class SitemapGenerator
      */
     public function add(string $url, $priority = 1, string $last_modified = null, string $change_frequency = 'weekly'): SitemapGenerator
     {
+        $url = $this->prefixPath($url);
+
         if ($this->isAvailableInList($url)) {
             return $this;
         }
@@ -175,5 +177,16 @@ class SitemapGenerator
         });
 
         return count($matching_links) > 0;
+    }
+
+    /**
+     * Prefix the path of the URL with a slash if needed
+     *
+     * @param string $url
+     * @return string
+     */
+    private function prefixPath(string $url): string
+    {
+        return parse_url($url, PHP_URL_PATH)[0] === '/' ? $url : "/{$url}";
     }
 }

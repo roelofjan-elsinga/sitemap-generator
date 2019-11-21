@@ -109,4 +109,13 @@ class SitemapGeneratorTest extends TestCase
 
         $this->assertTrue(strpos($generator->toXML(), 'https://test.com/') !== false);
     }
+
+    public function testSlashIsAddedAsPrefixWhenNotPresent()
+    {
+        $generator = new SitemapGenerator('https://test.com');
+
+        $generator->add('testing-page');
+
+        $this->assertTrue(strpos($generator->toXML(), 'https://test.com/testing-page') !== false);
+    }
 }
