@@ -1,5 +1,6 @@
 # Sitemap Generator
 
+[![CI](https://github.com/roelofjan-elsinga/sitemap-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/roelofjan-elsinga/sitemap-generator/actions/workflows/ci.yml)
 [![StyleCI Status](https://github.styleci.io/repos/177750721/shield)](https://github.styleci.io/repos/177750721)
 [![Code coverage](https://codecov.io/gh/roelofjan-elsinga/sitemap-generator/branch/master/graph/badge.svg)](https://codecov.io/gh/roelofjan-elsinga/sitemap-generator)
 [![Total Downloads](https://poser.pugx.org/roelofjan-elsinga/sitemap-generator/downloads)](https://packagist.org/packages/roelofjan-elsinga/sitemap-generator)
