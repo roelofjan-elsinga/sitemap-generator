@@ -1,4 +1,4 @@
-# Sitemap Generator
+# A Sitemap Generator with no dependencies
 
 [![CI](https://github.com/roelofjan-elsinga/sitemap-generator/actions/workflows/ci.yml/badge.svg)](https://github.com/roelofjan-elsinga/sitemap-generator/actions/workflows/ci.yml)
 [![StyleCI Status](https://github.styleci.io/repos/177750721/shield)](https://github.styleci.io/repos/177750721)
